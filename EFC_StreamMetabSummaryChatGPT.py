@@ -64,3 +64,21 @@ plt.xticks(rotation=45)
 
 plt.savefig('Time_Series_Plot.svg', format="svg")
 plt.close()
+
+# Extract columns with ".mean" extension
+mean_columns = [col for col in data.columns if ".mean" in col]
+mean_data = data[mean_columns]
+
+# Calculate pairwise correlations
+correlation_matrix = mean_data.corr()
+
+correlation_matrix
+
+# import seaborn as sns
+# import matplotlib.pyplot as plt
+
+# Plot a heatmap of the correlation matrix
+plt.figure(figsize=(10, 8))
+sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1, linewidths=0.5, linecolor='black')
+plt.title("Correlation Heatmap of Mean Variables")
+plt.show()
