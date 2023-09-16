@@ -33,11 +33,10 @@ plt.legend()
 plt.title("GPP vs ER with Error Bars")
 plt.grid(True, which='both', linestyle='--', linewidth=0.5)
 plt.tight_layout()
-plt.show()
+# plt.show()
 
-# Save the plot (we'll save it as PNG for display purposes, but SVG can be used for high-resolution plots)
-plot_filename = "EFC_GPPvsER_ErrorBars.png"
-plt.savefig(plot_filename, format='png')
+# Save the plot
+plt.savefig('EFC_GPPvsER_ErrorBars.svg', format='svg')
 
 # Make a time series plot of GPP.mean, ER.mean, and NEP.mean with error bars
 # defined by GPP.sd, ER.sd, and NEP.sd. x = "Date". Save the plot as a svg file.
@@ -61,7 +60,7 @@ plt.legend()
 plt.grid(True, which='both', linestyle='--', linewidth=0.5)
 plt.tight_layout()
 plt.xticks(rotation=45)
-plt.show()
+# plt.show()
 
 plt.savefig('Time_Series_Plot.svg', format="svg")
 plt.close()
