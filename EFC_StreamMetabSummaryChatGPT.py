@@ -81,4 +81,5 @@ correlation_matrix
 plt.figure(figsize=(10, 8))
 sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', vmin=-1, vmax=1, linewidths=0.5, linecolor='black')
 plt.title("Correlation Heatmap of Mean Variables")
-plt.show()
+plt.savefig('CorrelationHeatmap.svg', format="svg")
+plt.close()
