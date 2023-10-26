@@ -1,14 +1,13 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import geopandas as gpd
+from shapely.geometry import Point
 
 # Load the CSV file into a pandas DataFrame
 data = pd.read_csv('Survey.csv', encoding='ISO-8859-1')
 
 # Display the first few rows of the DataFrame
 data.head()
-
-import matplotlib.pyplot as plt
-import geopandas as gpd
-from shapely.geometry import Point
 
 # Convert DataFrame to a GeoDataFrame
 geometry = [Point(xy) for xy in zip(data['Longitude'], data['Latitude'])]
@@ -24,7 +23,7 @@ gdf.plot(ax=ax, markersize=5)
 ax.set_title("Survey Data Points")
 plt.show()
 
-import numpy as np
+# import numpy as np
 
 # Normalize the ODOmgPerL values for color mapping and sizing
 norm = plt.Normalize(data['ODOmgPerL'].min(), data['ODOmgPerL'].max())
@@ -50,7 +49,8 @@ ax.set_title("Survey Data Points - ODOmgPerL")
 plt.show()
 
 # Determine the bounding box using the maximum and minimum values of latitude and longitude
-minx, miny, maxx, maxy = data['Longitude'].min(), data['Latitude'].min(), data['Longitude'].max(), data['Latitude'].max()
+minx, miny, maxx, maxy = (data['Longitude'].min(), data['Latitude'].min(),
+                          data['Longitude'].max(), data['Latitude'].max())
 
 # Plotting the zoomed-in map
 fig, ax = plt.subplots(figsize=(10, 10))
